@@ -164,6 +164,7 @@ public Class User {
 
 ## 4. Logging
 - settting.logImpl 
+
 ```xml
 <settings>
     <setting name="logImpl" value="LOG4J">
@@ -178,6 +179,7 @@ public Class User {
 #### 4.1.1 Configuration
 - can specify logging level for specific Package / Class / Method. 
 	- log4j.logger.<path to your target> = [TRACE | DEBUG | INFO | ERROR | ...]
+
 ```properties
 # Root logger
 log4j.rootLogger=DEBUG, console
@@ -199,6 +201,7 @@ log4j.appender.consoleAppender.layout.ConversionPattern=[%t] %-5p %c %x - %m%n
 ## 5. Mapping
 ### 5.1 XML
 - Parameter Map
+
 ```xml
 <select id="getUserById" paramerterType="map" resultType="com.sijie.pojo.User">
     select * from user where id = #{id} and name=#{username}
@@ -230,6 +233,7 @@ mapper.getUserById(map);
 
 ### 5.2 Annotation
 - CRUD implemented by Annotation Mapping
+
 ```java
 public interface UserMapper{
     @Select("select * from user")
@@ -272,6 +276,7 @@ TODO
 
 ## 7. Multiple Table Query
 - apply <resultMap> to map the complex result set
+
 ```java
 // example pojo Class
 @Data
@@ -323,6 +328,7 @@ FOREIGN KEY (sid) REFERENCES student(id)
 - `<association>`
 	- one flat record: associate an object (Course) to the main object (Student)
 	- each record represents one enrollment of one student takes one course
+
 ```xml
 <select id="getAllEnrollments" resultMap="ExtendEnroll">
     select s.id sid, s.name sname, c.id cid, c.name cname
@@ -349,6 +355,7 @@ FOREIGN KEY (sid) REFERENCES student(id)
 	- each record has an array integrated inside. 
 - the example shares the same Class Model and DB Schema
 	- it returns all the enrollments of all courses with aggragated Students inside Course
+
 ```xml
 <!--same class model and DB Schema-->
 <select id="getAllCourses" resultMap="CourseStudent">
