@@ -24,6 +24,7 @@ reference link: [Mybatis.org](https://mybatis.org/mybatis-3)
 
 - .xml config file can be placed in either src/ or resources/
 	○ if placed in src/, then you need the following resource filter to include those .xml files
+
 ```xml
 <build>
     <resources>
